@@ -1,20 +1,60 @@
-var targetNumber = 39;
+var bigNum = Math.floor(Math.random() * (60 - 30)) + 30;
+document.getElementById("numToMatch").innerHTML = bigNum;
 
-  $(".col-md-3").text(targetNumber);
 
-  $(".rounded float-left").on("click", function() {
-    int random = (int)(Math.random() * 50 + 1);
+var crystal1 = Math.floor(Math.random() * (10 - 1)) + 1;
+var crystal2 = Math.floor(Math.random() * (10 - 1)) + 1;
+var crystal3 = Math.floor(Math.random() * (10 - 1)) + 1;
+var crystal4 = Math.floor(Math.random() * (10 - 1)) + 1;
+var score = 0;
 
-  var imageCrystal = $("<img>");
-  imageCrystal.addClass("rounded float-left");
-  imageCrystal.addClass("rounded float-right");
-  imageCrystal.attr("src", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRovb4ppsf3MjJgbw2KLvfAZivud0Az0KXX156dP9mMPh-JVJRq");
-  imageCrystal.attr("data-crystalvalue",numberOptions[i]);
-  $("#crystal").append(imageCrystal);
+document.getElementById("C1").addEventListener("click", addCrystal1);
+document.getElementById("C2").addEventListener("click", addCrystal2);
+document.getElementById("C3").addEventListener("click", addCrystal3);
+document.getElementById("C4").addEventListener("click", addCrystal4);
+
+document.getElementById("totalScore").innerHTML = score;
+
+function doesNumMatch() {
+
+  if (score > bigNum) {
+    document.getElementById("gameOver").innerHTML = "You Lose";
+  } else if (score == bigNum) {
+    document.getElementById("gameOver").innerHTML = "You WIN";
+  }
 }
 
-var numberOptions = [10, 5, 3, 9, ]
 
-for(var i=0;i<numberOptions.length;i++){
 
+function addCrystal1() {
+  var score = score + crystal1.ValueOf();
+  document.getElementById("totalScore").innerHTML = score;
+  doesNumMatch();
+  return score;
+
+}
+
+function addCrystal2() {
+  var score = score + crystal2.ValueOf();
+  document.getElementById("totalScore").innerHTML = score;
+  doesNumMatch();
+  return score;
+}
+
+function addCrystal3() {
+  // document.getElementById("totalScore").innerHTML = score + crystal1;
+  var score = score + crystal3.ValueOf();
+  document.getElementById("totalScore").innerHTML = score;
+  doesNumMatch();
+  return score;
+}
+
+function addCrystal14() {
+  var score = score + crystal4.ValueOf();
+  document.getElementById("totalScore").innerHTML = score;
+  doesNumMatch();
+  return score;
+}
+
+console.log(crystal1 + " " + crystal2 + " " + crystal3 + " " + crystal4);
 
